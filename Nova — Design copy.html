@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nova — Design copy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  --radius:1rem;
+  --background:oklch(0.98 0.008 280);--foreground:oklch(0.2 0.03 275);
+  --card:oklch(1 0 0);--primary:oklch(0.58 0.2 275);--primary-foreground:oklch(0.99 0 0);
+  --secondary:oklch(0.94 0.015 280);--muted-foreground:oklch(0.5 0.03 275);
+  --accent:oklch(0.65 0.17 235);--accent-foreground:oklch(0.99 0 0);
+  --destructive:oklch(0.6 0.22 25);--border:oklch(0.9 0.015 280);
+  --bubble:oklch(0.58 0.2 275);--bubble-foreground:oklch(0.99 0 0);
+  --grad-a:oklch(0.65 0.2 290);--grad-b:oklch(0.65 0.17 235);--grad-c:oklch(0.72 0.15 200);
+  --glow:oklch(0.65 0.2 280 / 0.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --background:oklch(0.15 0.025 275);--foreground:oklch(0.95 0.01 280);
+    --card:oklch(0.2 0.03 275);--primary:oklch(0.7 0.17 280);--primary-foreground:oklch(0.15 0.03 275);
+    --secondary:oklch(0.25 0.03 275);--muted-foreground:oklch(0.7 0.03 275);
+    --accent:oklch(0.72 0.14 230);--accent-foreground:oklch(0.15 0.03 275);
+    --destructive:oklch(0.68 0.19 25);--border:oklch(1 0 0 / 9%);
+    --bubble:oklch(0.32 0.07 280);--bubble-foreground:oklch(0.97 0.01 280);
+    --glow:oklch(0.6 0.2 280 / 0.25);
+  }
+}
+:root[data-theme="dark"]{
+  --background:oklch(0.15 0.025 275);--foreground:oklch(0.95 0.01 280);
+  --card:oklch(0.2 0.03 275);--primary:oklch(0.7 0.17 280);--primary-foreground:oklch(0.15 0.03 275);
+  --secondary:oklch(0.25 0.03 275);--muted-foreground:oklch(0.7 0.03 275);
+  --accent:oklch(0.72 0.14 230);--accent-foreground:oklch(0.15 0.03 275);
+  --destructive:oklch(0.68 0.19 25);--border:oklch(1 0 0 / 9%);
+  --bubble:oklch(0.32 0.07 280);--bubble-foreground:oklch(0.97 0.01 280);
+  --glow:oklch(0.6 0.2 280 / 0.25);
+}
+*,*::before,*::after{box-sizing:border-box;border-color:var(--border)}
+html,body{height:100%;margin:0}
+body{background:var(--background);color:var(--foreground);font-family:"Figtree",system-ui,sans-serif;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+h1,h2,h3{font-family:"Outfit",system-ui,sans-serif;margin:0}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+[hidden]{display:none!important}
+.text-nova{background:linear-gradient(90deg,var(--grad-a),var(--grad-b),var(--grad-c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.bg-nova{background:linear-gradient(135deg,var(--grad-a),var(--grad-b) 60%,var(--grad-c))}
+.app{display:flex;flex-direction:column;height:100%;padding-top:env(safe-area-inset-top,0px);
+  background:radial-gradient(60% 40% at 20% 0%,var(--glow),transparent 70%),radial-gradient(50% 35% at 100% 10%,oklch(0.65 0.15 230 / .15),transparent 70%),var(--background)}
+header{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem .5rem}
+.brand{display:flex;align-items:center;gap:.5rem}
+.logo{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:oklch(0.2 0.05 275)}
+.brand h1{font-size:1.5rem;font-weight:600}
+.icons{display:flex;gap:.25rem}
+.ib{width:44px;height:44px;border-radius:9999px;display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.ib:active{transform:scale(.9)}
+.ib:hover{background:var(--secondary)}
+svg.i{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+main{flex:1;overflow-y:auto;padding:0 1rem}
+.wrap{max-width:42rem;margin:0 auto;padding:1rem 0;display:flex;flex-direction:column;gap:1rem}
+.hero{text-align:center;padding-top:4rem}
+.hero h2{font-size:2.25rem;line-height:1.15;font-weight:600}
+.sugs{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:2rem;text-align:left;font-size:.875rem}
+.sug{border:1px solid var(--border);background:color-mix(in oklab,var(--card) 60%,transparent);border-radius:1.25rem;padding:1rem;text-align:left}
+.sug:active{transform:scale(.98)}
+.row{display:flex;animation:msg .3s ease-out}
+.row.u{justify-content:flex-end}
+.bubble{max-width:85%;background:var(--bubble);color:var(--bubble-foreground);padding:.75rem 1rem;border-radius:1.5rem 1.5rem .5rem 1.5rem}
+.bot{max-width:95%;line-height:1.55}
+.chip{display:inline-block;margin-top:.75rem;border:1px solid var(--border);background:color-mix(in oklab,var(--card) 70%,transparent);border-radius:9999px;padding:.375rem .75rem;font-size:.75rem;color:var(--muted-foreground)}
+.dots{display:flex;gap:6px;padding:.75rem 0}
+.dots span{width:7px;height:7px;border-radius:9999px;background:var(--primary);animation:dot 1.2s infinite ease-in-out}
+.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,80%,100%{transform:scale(.5);opacity:.4}40%{transform:scale(1);opacity:1}}
+@keyframes msg{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+footer{padding:0 .75rem calc(env(safe-area-inset-bottom,0px) + .75rem)}
+.comp{max-width:42rem;margin:0 auto;border:1px solid var(--border);background:color-mix(in oklab,var(--card) 90%,transparent);border-radius:1.75rem;padding:.5rem;box-shadow:0 10px 25px -5px rgb(0 0 0 / .2);backdrop-filter:blur(12px)}
+textarea{width:100%;max-height:9rem;min-height:3rem;resize:none;background:transparent;border:0;outline:0;padding:.75rem;font:inherit;font-size:1rem;color:var(--foreground)}
+textarea::placeholder{color:var(--muted-foreground)}
+.tools{display:flex;align-items:center;gap:.25rem}
+.grow{flex:1}
+.pill{height:44px;display:flex;align-items:center;gap:.375rem;padding:0 .75rem;border-radius:9999px;font-size:.875rem;font-weight:500;transition:background .2s}
+.pill:hover{background:var(--secondary)}
+.pill.on{background:var(--accent);color:var(--accent-foreground)}
+.round{color:var(--primary-foreground)}
+.mic.on{background:var(--destructive);color:#fff;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{opacity:.5}}
+.overlay{position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center;background:rgb(0 0 0 / .55)}
+.sheet{width:100%;max-width:26rem;background:var(--card);border:1px solid var(--border);border-radius:1.75rem 1.75rem 0 0;padding:.75rem 1.25rem calc(env(safe-area-inset-bottom,0px) + 1.25rem);animation:sheet .3s cubic-bezier(.2,.9,.3,1)}
+@keyframes sheet{from{transform:translateY(100%)}to{transform:none}}
+.grab{width:40px;height:4px;border-radius:9px;background:var(--border);margin:0 auto 1rem}
+.sheet .logo{width:64px;height:64px;border-radius:1rem;margin:0 auto}
+.sheet h2{font-size:1.875rem;margin-top:1rem;text-align:center;font-weight:600}
+.sheet p{color:var(--muted-foreground);text-align:center;margin:.5rem 0 1rem}
+.sheet input[type=text]{width:100%;height:3rem;border-radius:9999px;border:1px solid var(--border);background:var(--secondary);padding:0 1rem;font:inherit;color:var(--foreground);outline:0}
+.cta{width:100%;height:3rem;margin-top:.75rem;border-radius:9999px;font-weight:600;color:var(--primary-foreground)}
+.set{display:flex;align-items:center;justify-content:space-between;padding:.875rem 0;border-bottom:1px solid var(--border)}
+.sw{width:46px;height:28px;border-radius:9999px;background:var(--secondary);position:relative;transition:background .2s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:9999px;background:#fff;transition:transform .2s}
+.sw.on{background:var(--primary)}.sw.on::after{transform:translateX(18px)}
+.live{position:fixed;inset:0;z-index:30;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;padding:env(safe-area-inset-top,0px) 1rem env(safe-area-inset-bottom,0px);
+  background:radial-gradient(60% 40% at 50% 40%,var(--glow),transparent 70%),var(--background)}
+.orb{width:15rem;max-width:70vw;aspect-ratio:1;border-radius:9999px;background:radial-gradient(circle at 35% 30%,var(--grad-c),var(--grad-b) 45%,var(--grad-a) 80%);box-shadow:0 0 80px var(--glow),0 0 160px var(--glow);transition:transform .4s,filter .4s}
+.orb[data-state=idle]{animation:breathe 4s ease-in-out infinite;filter:saturate(.8)}
+.orb[data-state=listening]{animation:listen 1.1s ease-in-out infinite}
+.orb[data-state=thinking]{animation:think 1.6s linear infinite;filter:hue-rotate(25deg)}
+.orb[data-state=talking]{animation:talk .45s ease-in-out infinite alternate;filter:brightness(1.15)}
+@keyframes breathe{50%{transform:scale(1.04)}}
+@keyframes listen{0%,100%{transform:scale(1);box-shadow:0 0 60px var(--glow)}50%{transform:scale(1.12);box-shadow:0 0 140px var(--grad-b)}}
+@keyframes think{from{transform:rotate(0) scale(.92);border-radius:46% 54% 50% 50%}50%{border-radius:54% 46% 44% 56%}to{transform:rotate(360deg) scale(.92);border-radius:46% 54% 50% 50%}}
+@keyframes talk{from{transform:scale(.97)}to{transform:scale(1.09)}}
+.status{font-family:"Outfit",sans-serif;font-size:1.25rem;color:var(--muted-foreground)}
+.states{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.states button{border:1px solid var(--border);border-radius:9999px;padding:.5rem .875rem;font-size:.875rem}
+.states button.sel{background:var(--secondary)}
+.end{width:64px;height:64px;border-radius:9999px;background:var(--destructive);color:#fff;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand">
+      <div class="logo"><svg width="22" height="22" viewBox="0 0 24 24"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9b7bff"/><stop offset="1" stop-color="#2cc6ff"/></linearGradient></defs><path d="M12 2c.6 5.2 4.8 9.4 10 10-5.2.6-9.4 4.8-10 10-.6-5.2-4.8-9.4-10-10 5.2-.6 9.4-4.8 10-10z" fill="url(#g)"/></svg></div>
+      <h1 class="text-nova">Nova</h1>
+    </div>
+    <div class="icons">
+      <button class="ib" id="clear" aria-label="Clear chats"><svg class="i" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg></button>
+      <button class="ib" id="openSet" aria-label="Settings"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h0a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5h0a1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v0a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
+    </div>
+  </header>
+
+  <main><div class="wrap" id="chat">
+    <div class="hero" id="hero">
+      <h2><span class="text-nova">Hello.</span><br>How can I help?</h2>
+      <div class="sugs">
+        <button class="sug">Plan a 3-day trip to Lisbon</button>
+        <button class="sug">Explain black holes simply</button>
+        <button class="sug">Write a kind birthday text</button>
+        <button class="sug">What's in the news today?</button>
+      </div>
+    </div>
+  </div></main>
+
+  <footer>
+    <div class="comp">
+      <textarea id="inp" rows="1" placeholder="Ask Nova"></textarea>
+      <div class="tools">
+        <button class="ib" aria-label="Attach photo"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg></button>
+        <button class="pill" id="res" aria-pressed="false"><svg class="i" style="width:16px;height:16px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></svg>Research</button>
+        <div class="grow"></div>
+        <button class="ib mic" id="mic" aria-label="Dictate"><svg class="i" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4"/></svg></button>
+        <button class="ib bg-nova round" id="act" aria-label="Live voice chat"><svg class="i" id="actIcon" viewBox="0 0 24 24"><path d="M2 10v3M6 6v11M10 3v18M14 8v8M18 5v14M22 10v3"/></svg></button>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<div class="overlay" id="welcome">
+  <div class="sheet">
+    <div class="grab"></div>
+    <div class="logo"><svg width="32" height="32" viewBox="0 0 24 24"><path d="M12 2c.6 5.2 4.8 9.4 10 10-5.2.6-9.4 4.8-10 10-.6-5.2-4.8-9.4-10-10 5.2-.6 9.4-4.8 10-10z" fill="url(#g)"/></svg></div>
+    <h2>Welcome to <span class="text-nova">Nova</span></h2>
+    <p>Paste your free Gemini API key to begin. Get one in a minute at aistudio.google.com. It stays on this device only.</p>
+    <input type="text" placeholder="Paste your Gemini API key" autocomplete="off">
+    <button class="cta bg-nova" id="start">Start chatting</button>
+  </div>
+</div>
+
+<div class="overlay" id="settings" hidden>
+  <div class="sheet">
+    <div class="grab"></div>
+    <h3 style="font-size:1.5rem;margin-bottom:.5rem">Settings</h3>
+    <div class="set"><span>Dark mode</span><button class="sw" id="swDark" aria-label="Dark mode"></button></div>
+    <div class="set"><span>Speak replies aloud</span><button class="sw" id="swSpeak" aria-label="Speak replies"></button></div>
+    <button class="cta bg-nova" id="closeSet">Done</button>
+  </div>
+</div>
+
+<div class="live" id="live" hidden>
+  <div class="orb" id="orb" data-state="idle"></div>
+  <div class="status" id="status">Tap an orb state</div>
+  <div class="states" id="states">
+    <button data-s="idle">Idle</button><button data-s="listening" class="sel">Listening</button><button data-s="thinking">Thinking</button><button data-s="talking">Talking</button>
+  </div>
+  <button class="end" id="endLive" aria-label="End"><svg class="i" viewBox="0 0 24 24" style="width:26px;height:26px"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+</div>
+
+<script>
+(function(){
+  var $=function(i){return document.getElementById(i)};
+  var root=document.documentElement;
+  function setTheme(d){root.setAttribute('data-theme',d?'dark':'light');$('swDark').classList.toggle('on',d);try{localStorage.setItem('nova.dark',d?'1':'0')}catch(e){}}
+  var dark=true;try{var s=localStorage.getItem('nova.dark');if(s!==null)dark=s==='1'}catch(e){}
+  setTheme(dark);
+  var research=false,busy=false;
+  var chat=$('chat'),inp=$('inp'),hero=$('hero');
+  var sendSvg='<path d="m5 12 7-7 7 7M12 19V5"/>',waveSvg='<path d="M2 10v3M6 6v11M10 3v18M14 8v8M18 5v14M22 10v3"/>';
+  function sync(){var has=inp.value.trim().length>0;$('actIcon').innerHTML=has?sendSvg:waveSvg;$('act').setAttribute('aria-label',has?'Send':'Live voice chat')}
+  inp.addEventListener('input',function(){inp.style.height='auto';inp.style.height=Math.min(inp.scrollHeight,144)+'px';sync()});
+  document.querySelectorAll('.sug').forEach(function(b){b.onclick=function(){inp.value=b.textContent;sync();inp.focus()}});
+  $('start').onclick=function(){$('welcome').hidden=true};
+  $('res').onclick=function(){research=!research;this.classList.toggle('on',research);this.setAttribute('aria-pressed',research)};
+  $('mic').onclick=function(){this.classList.toggle('on')};
+  $('openSet').onclick=function(){$('settings').hidden=false};
+  $('closeSet').onclick=function(){$('settings').hidden=true};
+  $('swDark').onclick=function(){dark=!dark;setTheme(dark)};
+  $('swSpeak').onclick=function(){this.classList.toggle('on')};
+  $('clear').onclick=function(){chat.querySelectorAll('.row').forEach(function(r){r.remove()});hero.hidden=false};
+  function scroll(){var m=document.querySelector('main');m.scrollTop=m.scrollHeight}
+  function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+  function send(){
+    var t=inp.value.trim();if(!t||busy)return;
+    busy=true;hero.hidden=true;
+    chat.insertAdjacentHTML('beforeend','<div class="row u"><div class="bubble">'+esc(t)+'</div></div>');
+    inp.value='';inp.style.height='auto';sync();
+    chat.insertAdjacentHTML('beforeend','<div class="row" id="pending"><div class="bot"><div class="dots"><span></span><span></span><span></span></div></div></div>');
+    scroll();
+    setTimeout(function(){
+      var p=$('pending');p.removeAttribute('id');
+      var src=research?'<div><span class="chip">1. Example source</span> <span class="chip">2. Another source</span></div>':'';
+      p.firstChild.innerHTML='<p style="margin:0">This is a design preview, so replies are demo text. In the real app, Nova answers using your own Gemini key.</p>'+src;
+      busy=false;scroll();
+    },1200);
+  }
+  $('act').onclick=function(){if(inp.value.trim())send();else{$('live').hidden=false;setState('listening')}};
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey&&window.innerWidth>768){e.preventDefault();send()}});
+  var labels={idle:'Ready',listening:'Listening…',thinking:'Thinking…',talking:'Speaking…'};
+  function setState(s){$('orb').setAttribute('data-state',s);$('status').textContent=labels[s];document.querySelectorAll('#states button').forEach(function(b){b.classList.toggle('sel',b.dataset.s===s)})}
+  document.querySelectorAll('#states button').forEach(function(b){b.onclick=function(){setState(b.dataset.s)}});
+  $('endLive').onclick=function(){$('live').hidden=true};
+})();
+</script>
+</body>
+</html>
